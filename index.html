@@ -1,0 +1,402 @@
+
+<!-- Pediatric Milestones Flashcards
+    Excerpted from Cuccurullo PM&R Board Review Third Edition
+    Written by George Marzloff, MD | george@marzloffmedia.com
+-->
+
+<html> 
+    <head>
+        <title>Milestones Flashcards</title>
+
+        <style>
+            body {
+                background-color: darkblue;
+                font-size: 3em;
+                font-family: 'Arial Narrow', Helvetica, sans-serif;
+                /* color: white; */
+                text-align: center;
+            }
+
+            #agediv, #milestonediv {
+                padding: 20px;
+                min-height: 20%;
+                margin: 20px;
+            }
+
+            #instructions {
+                font-size: 14px; 
+                margin-top: 20px;
+            }
+
+            #bodywrapper {
+                background-color: /*black*/ lightyellow;
+                width: 60%;
+                height: 80%;
+                margin: 20px auto; 
+
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="bodywrapper">
+            <div id="instructions">Pediatric Milestones | Tap or Up/Down to see age. Left/Right to advance.</div>
+            <div id="milestonediv">milestone</div>
+            <div id="agediv">newborn</div>
+        </div>
+        <script>
+            
+            var milestones = {
+            newborn: {
+                title: 'newborn',
+                list: [
+                    'rounded spine when held sitting',   
+                    'grasp reflex for fine motor'
+                ]
+            },
+            fourMonths: { 
+                title: 'four months',
+                list: [
+                    'prone position, lifts head ot 90 deg and lifts chest slightly',
+                    'turns to supine',
+                    'midline hand play',
+                    'crude palmar grasp',
+                    'fascinated by own face in mirror',
+                    'recognizes bottle',
+                    'turns to voice and bell consistently',
+                    'laughs, squeals',
+                    'responsive vocalization',
+                    'blows bubbles',
+                    'raspberries',
+                    'lap baby, developing a sense of trust'
+                ]
+            },
+            fiveMonths: {
+                title: 'five months',
+                list: [
+                    'begins to differentiate mother and self- individualization',
+                    'sense of belonging to a central person'
+                ]
+            },
+
+            sevenMonths: {
+                title: 'seven months',
+                list: [
+                    'maintains sitting',
+                    'rolls to prone',
+                    'bounces when held erect',
+                    'cervical lordosis',
+                    'intermediate grasp',
+                    'transfers cube from hand to hand',
+                    'bangs objects',
+                    'differentiates between familiar person and stranger',
+                    'holds bottle',
+                    'looks for dropped object',
+                    'talks to mirror image',
+                    'uses single-word and double-consonant vowel combinations'
+                ]
+            }, 
+
+            tenMonths: {
+                title: 'ten months',
+                list: [
+                    'creeps on all fours',
+                    'pivots in siting',
+                    'stands momentarily, cruises',
+                    'slight bow leg',
+                    'increased lumbar lordosis, acute lumbosacral angulation',
+                    'pincer grasp',
+                    'mature thumb to index grasp',
+                    'bangs 2 cubes held in hands',
+                    'plays peek-a-boo',
+                    'finger feeds',
+                    'chews with rotary movement',
+                    'shouts for attention',
+                    'imitates speech sounds',
+                    'waves bye bye',
+                    'uses mama and dada with meaning',
+                    'inhibits behavior to No',
+                    'can retrieve object hidden from view',
+                    'practicing phase of separation--individuation',
+                    'practices imitating separations'
+                ]
+            },
+
+            fourteenMonths: {
+                title: 'fourteen months',
+                list: [
+                    'walks alone, arms in high guard or midguard',
+                    'wide base, excessive knee and hip flexion',
+                    'foot contact on entire side',
+                    'slight valgus of knees and feet',
+                    'pelvic tilt and rotation',
+                    'piles 2 cubes',
+                    'scribbles spontaneously',
+                    'holds crayon full length in palm',
+                    'casts objects',
+                    'uses spoon with over pronation and spilling',
+                    'removes a garment',
+                    'uses single words',
+                    'understands simple commands',
+                    'diferentiates available behavior patterns for new ends, e.g. pulls rug on which is a toy',
+                    'rapprochement phase - individuation; ambivalence behavior to mother',
+                    'stage of autonomy vs. shame and doubt',
+                    'pleasures in control of muscle and sphincter'
+                ]
+            },
+
+            eighteenMonths: {
+                title: 'eighteen months',
+                list: [
+                    'arms at low guard',
+                    'mature supporting base and heel strike',
+                    'seats self in chair',
+                    'walks backward',
+                    'emerging hand dominance',
+                    'crude release',
+                    'holds crayon butt end in palm',
+                    'dumps raisin from bottle spontaneously',
+                    'imitates housework',
+                    'carries, hugs doll',
+                    'drinks from cup neatly',
+                    'points to named body part',
+                    'identifies 1 picture',
+                    'says No',
+                    'jargons',
+                    'capable of insight; problem solving by mental combinations, not physical groping'
+                ]
+            },
+
+            twoYears: {
+                title: 'two years',
+                list: [
+                    'begins running',
+                    'walks up and down stairs alone',
+                    'jumps on both feet in place',
+                    'hand dominance is usual',
+                    'builds 8-cube tower',
+                    'aligns cubes horizontally',
+                    'imitates vertical line',
+                    'places pencil shaft between thumb and fingers',
+                    'draws with arm and wrist action',
+                    'pulls on garment',
+                    'uses spoon well',
+                    'opens door turning knob',
+                    'feeds doll with bottle or spoon',
+                    'toilet training usually begun',
+                    'two-word phrases are common',
+                    'uses verbs',
+                    'refers to self by name',
+                    'uses me, mine',
+                    'follows simple directions',
+                    'preoperation period able to evoke an object or event not present',
+                    'object performance established',
+                    'comprehends symbols'
+                ]
+            }, 
+
+            threeYears: {
+                title: 'three years',
+                list: [
+                    'runs well',
+                    'pedals tricycle',
+                    'broad jumps',
+                    'walks up stairs alternating feet',
+                    'imitates 3-cube bridge',
+                    'uses overhand throw with AP arm and motion',
+                    'catches with extended arms hugging against body',
+                    'most children toilet trained day and night',
+                    'pours from pitcher',
+                    'unbutton',
+                    'washes and dries hand and face',
+                    'parallel play',
+                    'can take turns',
+                    'can be reasoned with',
+                    'three-word sentences are usual',
+                    'uses future tense',
+                    'asks who, what where',
+                    'follows prepositional commands',
+                    'gives full name',
+                    'may stutter, eager',
+                    'identifies sex of self',
+                    'recognizes three colors',
+                    'capable of deferred limitation symbolic play',
+                    'drawing of graphic images',
+                    'mental images',
+                    'verbal evocation of event',
+                    'stage of initiative vs guilt',
+                    'deals with issue of genital sexuality'
+                ]
+            },
+
+            fourYears: {
+                title: 'four years',
+                list: [
+                    'walks down stairs alternating feet',
+                    'hops on 1 foot',
+                    'plantar arches developing',
+                    'sits up from supine with rotating',
+                    'hands a pencil by finger and wrist action, like adults',
+                    'copies a cross',
+                    'draws a froglike person with head and extremities',
+                    'throws underhand',
+                    'cuts with scissors',
+                    'cooperative play-sharing and interacting',
+                    'imaginative make believe play',
+                    'dresses and undresses with supervision',
+                    'distinguishing front and back of clothing and buttoning',
+                    'does simple errands outside of home',
+                    'gives connected account of experience',
+                    'asks why when how',
+                    'uses past tense, adjectives, adverbs',
+                    'knows opposite analogies',
+                    'repeats four digits'
+                ]
+            },
+
+            fiveYears: {
+                title: 'five years',
+                list: [
+                    'skips, tiptoes',
+                    'balances 10 seconds on each foot',
+                    'hand dominance expected',
+                    'draws man with head, body, extremities',
+                    'throws with diagonal arm and body rotation',
+                    'catches with hand',
+                    'creative play',
+                    'competititve team play',
+                    'uses fork for stabbing food',
+                    'brushes teeth',
+                    'self-sufficient in toileting',
+                    'dresses without supervision except tying shoelaces',
+                    'fluent speech',
+                    'misarticulation of some sounds may persist',
+                    'gives name, age, address',
+                    'defines concrete nouns--composition, classification, use',
+                    'follows 3-part commands',
+                    'number concept to 10',
+                    'adjust to the inorganic laws of the tool world'
+                ]
+            },
+
+            sixYears: {
+                title: 'six years',
+                list: [
+                    'rides bicycle',
+                    'roller skates',
+                    'prints alphabet',
+                    'alphabet letter reversals still acceptable',
+                    'mature catch and throw of ball',
+                    'teacher is important authority',
+                    'uses fork appropriately',
+                    'uses knife for spreading',
+                    'plays table games',
+                    'shows mastery of grammar',
+                    'uses proper articulation',
+                    'stage of industry versus inferiority continues'
+                ]
+            },
+
+            sevenYears: {
+                title: 'seven years',
+                list: [
+                    'continuing refinement of gross motor skills',
+                    'eats with fork and knife',
+                    'combs hair',
+                    'is responsible for grooming',
+                    'capable of logical thinking'
+                ]
+            }
+        }
+
+        milestones.pick = function() {
+            // the randomization is evenly weightly for all milestones
+            var randomOverallIndex = this.stats.total * Math.random() << 0;
+
+            var remainder = randomOverallIndex;
+            var ageObj = {};
+            var milestone = "";
+
+            for(var i=0; i<this.stats.ages.length; i++){
+                if(remainder > this.stats.listLengths[i]){
+                    remainder -= this.stats.listLengths[i];
+                } else{
+                    ageObj = this[this.stats.ages[i]];
+                    milestone = ageObj.list[ remainder-1 ];
+                    break;
+                }
+            }
+
+            return {
+                age: ageObj.title,
+                milestone: milestone
+            };
+        }
+
+        function calculateStats(){
+            var ages = Object.keys(milestones);
+
+            // remove pick function from keys
+            var pickIndex = ages.indexOf('pick');
+            if (pickIndex !== -1) ages.splice(pickIndex, 1);
+
+            var listLengths =[];
+            for(var i=0; i<ages.length; i++){
+                debugger;
+                listLengths[i] = milestones[ages[i]].list.length;
+            }
+            var total = listLengths.reduce((a, b) => a + b, 0);
+
+            milestones.stats = {
+                ages: ages,             // keys
+                listLengths: listLengths,   // lengths of lists
+                total: total            // total count of milestones
+            };
+        }
+            
+        function drawCard(){
+            var card = milestones.pick();
+            document.getElementById("agediv").style.visibility = "hidden";
+            document.getElementById("agediv").innerHTML = card.age;
+            document.getElementById("milestonediv").innerHTML = card.milestone;
+        }
+
+        window.addEventListener("keydown", function(event){
+            var key = event.key || event.keyCode;
+
+            if (key == 'ArrowLeft' || key == 'ArrowRight' || key == 37 || key == 39 ){
+                drawCard();
+
+            } else if (key == 'ArrowUp' || key == 'ArrowDown' || key == 38 || key == 40 ){
+            
+                // show/hide age
+                var agediv = document.getElementById('agediv');
+                agediv.style.visibility = agediv.style.visibility == "visible" ? "hidden" : "visible";
+            }
+        });
+
+        window.addEventListener('click', tapAdvance);
+        window.addEventListener('touchstart', tapAdvance);
+
+        function tapAdvance(event){
+            var age = document.getElementById('agediv').style;
+            if(age.visibility == "hidden"){ age.visibility = "visible"; }
+            else drawCard();
+            if(event.type == 'touchstart'){
+                event.preventDefault(); // prevents 'click' trigger
+            }
+        }
+
+        window.onload = function(){
+            calculateStats();
+            drawCard();
+
+        }
+        </script>
+    </body>
+</html>
